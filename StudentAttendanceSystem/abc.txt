@@ -1,0 +1,47 @@
+EmployeeDB Prerequisites and Run Instructions
+
+Prerequisites:
+- Java: JDK 21 (Eclipse Adoptium)
+- MySQL: Docker container 'mysql-container' (port 3306 mapped to localhost:3306, root password: your_password)
+- MySQL Connector: /Users/shriyog/tomcat/lib/mysql-connector-j-8.3.0.jar
+- Directory: /Users/shriyog/Documents/Java/Employee/
+
+Setup and Run:
+1. Save EmployeeDB.java in /Users/shriyog/Documents/Java/Employee/
+2. Database Setup:
+   docker exec -it mysql-container mysql -uroot -ppassword
+   CREATE DATABASE employeeDB;
+   USE employeeDB;
+   CREATE TABLE Employee (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100), position VARCHAR(100), salary DOUBLE);
+   EXIT;
+3. Compile:
+   cd /Users/shriyog/Documents/Java/Employee
+   javac -cp "/Users/shriyog/tomcat/lib/mysql-connector-j-8.3.0.jar" EmployeeDB.java
+4. Run:
+   java -cp ".:/Users/shriyog/tomcat/lib/mysql-connector-j-8.3.0.jar" EmployeeDB
+
+
+
+   ----------------------------------------------------------------------------------------------------------------------------------------
+
+
+   ## in case you can't run it follow this:
+
+   https://grok.com/share/bGVnYWN5_c363b4d1-9b80-4d1c-b305-e76f0e9d02da
+
+
+
+   ----------------------------------------------------------------------------------------------------------------------------------------
+
+# step 1 open terminal and put the below command
+
+   javac -cp lib/mysql-connector-java-8.0.27.jar src/main/java/Employee/*.java && java -cp src/main/java:lib/mysql-connector-java-8.0.27.jar Employee.AttendanceSystemGUI
+
+
+# To check backend
+
+mysql -u root attendance_db -e "SELECT * FROM students;"  
+
+mysql -u root attendance_db -e "SELECT * FROM attendance;"  
+
+SHOW DATABASES;
